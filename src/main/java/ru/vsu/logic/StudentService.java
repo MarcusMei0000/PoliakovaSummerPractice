@@ -14,8 +14,17 @@ public interface StudentService {
     List<String> getAdultStudentsLastNameSorted(Collection<Student> students);
 
     /**
+     * Возвращает студентов-отличников
+     */
+    Set<Student> getExcellentStudents(Collection<Student> students);
+
+    /**
+     * Возвращает среднюю оценку
+     */
+    Double getAverageMark(Collection<Student> students);
+
+    /**
      * Возвращает самого молодого студента
      */
     Student findYoungestStudent(Collection<Student> students);
-
 }
