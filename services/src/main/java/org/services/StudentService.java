@@ -1,6 +1,5 @@
-package ru.vsu.logic;
-
-import ru.vsu.entity.Student;
+package org.services;
+import org.practice.Student;
 
 import java.util.Collection;
 import java.util.List;

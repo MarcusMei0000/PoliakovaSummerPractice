@@ -1,4 +1,4 @@
-package ru.vsu.entity;
+package org.practice;
 
 public enum Subject {
     MATHEMATICAL_ANALYSIS,

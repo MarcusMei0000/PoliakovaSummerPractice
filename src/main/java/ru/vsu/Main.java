@@ -1,13 +1,11 @@
 package ru.vsu;
-
-import org.w3c.dom.ls.LSOutput;
-import ru.vsu.entity.ExamResult;
-import ru.vsu.entity.Student;
-import ru.vsu.entity.Subject;
-import ru.vsu.implementation.StudentService;
+import org.practice.ExamResult;
+import org.practice.Student;
+import org.practice.Subject;
+import org.services.StudentService;
+import org.services.StudentServiceImpl;
 
 import java.time.LocalDate;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -24,12 +22,16 @@ import java.util.Set;
 public class Main {
 
     public static void main(String[] args) {
-        StudentService studentService = new StudentService();
+
+        StudentService studentService = new StudentServiceImpl();
 
         Set<ExamResult> examResultsPolina = Set.of(
                 new ExamResult(LocalDate.of(2022, 1, 10), 5, Subject.PROGRAMMING),
                 new ExamResult(LocalDate.of(2022, 1, 15), 4, Subject.LINEAR_ALGEBRA),
+
                 new ExamResult(LocalDate.of(2022, 1, 20), 3, Subject.HISTORY),
+
+
                 new ExamResult(LocalDate.of(2022, 1, 30), 5, Subject.FUNCTIONAL_ANALYSIS)
         );
 

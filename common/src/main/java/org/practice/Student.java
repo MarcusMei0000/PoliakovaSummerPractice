@@ -1,4 +1,4 @@
-package ru.vsu.entity;
+package org.practice;
 
 import java.util.Objects;
 import java.util.Set;
