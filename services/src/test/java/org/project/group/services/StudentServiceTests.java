@@ -10,12 +10,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.project.group.services.TestData.*;
 
 
-public class StudentServiceTests {
+class StudentServiceTests {
 
     private final StudentService studentService = new StudentServiceImpl();
 
     @Test
-    public void getAdultStudentsLastNameSorted() {
+    void getAdultStudentsLastNameSorted() {
         // given
         List<String> expectedLastNames = List.of("Belyaev", "Demchenko", "Polyhina", "Portnoy");
 
@@ -28,7 +28,7 @@ public class StudentServiceTests {
 
 
     @Test
-    public void getExcellentStudentReturnsOnlyExcellentStudents() {
+    void getExcellentStudentReturnsOnlyExcellentStudents() {
         // given
         Set<Student> expectedExcellentStudents = Set.of(STUDENT_MARIA, STUDENT_VLADIMIR);
 
@@ -40,7 +40,7 @@ public class StudentServiceTests {
     }
 
     @Test
-    public void getAverageMarkReturnsAverageMark() {
+    void getAverageMarkReturnsAverageMark() {
         // given
         double expectedAverageMark = 4.5;
 
@@ -52,14 +52,13 @@ public class StudentServiceTests {
     }
 
     @Test
-    public void findYoungestStudentReturnsYoungestStudent() {
+    void findYoungestStudentReturnsYoungestStudent() {
         // given
-        Student expectedStudent = STUDENT_ANTON;
 
         // when
         Student actualStudent = studentService.findYoungestStudent(ALL_STUDENTS);
 
         // then
-        assertEquals(expectedStudent, actualStudent);
+        assertEquals(STUDENT_ANTON, actualStudent);
     }
 }

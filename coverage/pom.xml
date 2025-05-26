@@ -10,6 +10,15 @@
     </parent>
 
     <artifactId>coverage</artifactId>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <coverage.threshold>0.70</coverage.threshold>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.project.group</groupId>
@@ -38,20 +47,27 @@
                 <version>0.8.10</version>
                 <executions>
                     <execution>
-                        <id>prepare-agent</id>
+                        <id>report-aggregate</id>
+                        <phase>verify</phase>
                         <goals>
-                            <goal>prepare-agent</goal>
+                            <goal>report-aggregate</goal>
                         </goals>
-                        <phase>test-compile</phase>
-                    </execution>
-                    <execution>
-                        <id>report</id>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                        <phase>test</phase>
                     </execution>
                 </executions>
+                <configuration>
+                    <rules>
+                        <rule>
+                            <element>BUNDLE</element>
+                            <limits>
+                                <limit>
+                                    <counter>LINE</counter>
+                                    <value>COVEREDRATIO</value>
+                                    <minimum>${coverage.threshold}</minimum>
+                                </limit>
+                            </limits>
+                        </rule>
+                    </rules>
+                </configuration>
             </plugin>
         </plugins>
     </build>

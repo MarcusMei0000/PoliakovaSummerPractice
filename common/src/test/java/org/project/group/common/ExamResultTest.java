@@ -84,7 +84,7 @@ class ExamResultTest {
         Set<ExamResult> examResults = new HashSet<>();
         examResults.add(new ExamResult(testDate1, testMark1, testSubject1));
 
-        ExamResult.Student student = new ExamResult.Student(
+        Student student = new Student(
                 "John", "Doe", 20, 2, 101, examResults);
 
         assertEquals("John", student.getFirstName());
@@ -97,91 +97,91 @@ class ExamResultTest {
 
     @Test
     void studentEquals_SameObject() {
-        ExamResult.Student student = createTestStudent();
+        Student student = createTestStudent();
         assertTrue(student.equals(student));
     }
 
     @Test
     void studentEquals_NullObject() {
-        ExamResult.Student student = createTestStudent();
+        Student student = createTestStudent();
         assertFalse(student.equals(null));
     }
 
     @Test
     void studentEquals_DifferentClass() {
-        ExamResult.Student student = createTestStudent();
+        Student student = createTestStudent();
         assertFalse(student.equals("Not a Student"));
     }
 
     @Test
     void studentEquals_EqualObjects() {
-        ExamResult.Student student1 = createTestStudent();
-        ExamResult.Student student2 = createTestStudent();
+        Student student1 = createTestStudent();
+        Student student2 = createTestStudent();
         assertTrue(student1.equals(student2));
     }
 
     @Test
     void studentEquals_DifferentFirstNames() {
-        ExamResult.Student student1 = createTestStudent();
-        ExamResult.Student student2 = new ExamResult.Student(
+        Student student1 = createTestStudent();
+        Student student2 = new Student(
                 "Jane", "Doe", 20, 2, 101, student1.getExamResults());
         assertFalse(student1.equals(student2));
     }
 
     @Test
     void studentEquals_DifferentLastNames() {
-        ExamResult.Student student1 = createTestStudent();
-        ExamResult.Student student2 = new ExamResult.Student(
+        Student student1 = createTestStudent();
+        Student student2 = new Student(
                 "John", "Smith", 20, 2, 101, student1.getExamResults());
         assertFalse(student1.equals(student2));
     }
 
     @Test
     void studentEquals_DifferentAges() {
-        ExamResult.Student student1 = createTestStudent();
-        ExamResult.Student student2 = new ExamResult.Student(
+        Student student1 = createTestStudent();
+        Student student2 = new Student(
                 "John", "Doe", 21, 2, 101, student1.getExamResults());
         assertFalse(student1.equals(student2));
     }
 
     @Test
     void studentEquals_DifferentYears() {
-        ExamResult.Student student1 = createTestStudent();
-        ExamResult.Student student2 = new ExamResult.Student(
+        Student student1 = createTestStudent();
+        Student student2 = new Student(
                 "John", "Doe", 20, 3, 101, student1.getExamResults());
         assertFalse(student1.equals(student2));
     }
 
     @Test
     void studentEquals_DifferentGroups() {
-        ExamResult.Student student1 = createTestStudent();
-        ExamResult.Student student2 = new ExamResult.Student(
+        Student student1 = createTestStudent();
+        Student student2 = new Student(
                 "John", "Doe", 20, 2, 102, student1.getExamResults());
         assertFalse(student1.equals(student2));
     }
 
     @Test
     void studentEquals_DifferentExamResults() {
-        ExamResult.Student student1 = createTestStudent();
+        Student student1 = createTestStudent();
         Set<ExamResult> differentResults = new HashSet<>();
         differentResults.add(new ExamResult(testDate2, testMark2, testSubject2));
 
-        ExamResult.Student student2 = new ExamResult.Student(
+        Student student2 = new Student(
                 "John", "Doe", 20, 2, 101, differentResults);
         assertFalse(student1.equals(student2));
     }
 
     @Test
     void studentHashCode_EqualObjects() {
-        ExamResult.Student student1 = createTestStudent();
-        ExamResult.Student student2 = createTestStudent();
+        Student student1 = createTestStudent();
+        Student student2 = createTestStudent();
         assertEquals(student1.hashCode(), student2.hashCode());
     }
 
 
-    private ExamResult.Student createTestStudent() {
+    private Student createTestStudent() {
         Set<ExamResult> examResults = new HashSet<>();
         examResults.add(new ExamResult(testDate1, testMark1, testSubject1));
-        return new ExamResult.Student("John", "Doe", 20, 2, 101, examResults);
+        return new Student("John", "Doe", 20, 2, 101, examResults);
     }
 }
