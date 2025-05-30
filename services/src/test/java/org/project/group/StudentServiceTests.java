@@ -1,13 +1,12 @@
-package org.project.group.services;
+package org.project.group;
 
 import org.junit.jupiter.api.Test;
-import org.project.group.common.Student;
 
 import java.util.List;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.project.group.services.TestData.*;
+import static org.project.group.TestData.*;
 
 
 class StudentServiceTests {

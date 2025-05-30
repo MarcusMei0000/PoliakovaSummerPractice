@@ -1,11 +1,5 @@
-package org.project.group.services;
+package org.project.group;
 
-import org.project.group.common.ExamResult;
-import org.project.group.common.Student;
-import org.project.group.common.Subject;
-
-import java.math.BigDecimal;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Set;

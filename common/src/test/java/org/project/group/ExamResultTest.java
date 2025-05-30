@@ -1,4 +1,4 @@
-package org.project.group.common;
+package org.project.group;
 
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
@@ -18,7 +18,7 @@ class ExamResultTest {
 
     @Test
     void examResultConstructorAndGetters() {
-        ExamResult result = new ExamResult(testDate1, testMark1, testSubject1);
+       ExamResult result = new ExamResult(testDate1, testMark1, testSubject1);
 
         assertEquals(testDate1, result.getExamDate());
         assertEquals(testMark1, result.getMark());

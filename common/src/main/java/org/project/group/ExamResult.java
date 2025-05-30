@@ -1,4 +1,4 @@
-package org.project.group.common;
+package org.project.group;
 
 import java.time.LocalDate;
 import java.util.Objects;

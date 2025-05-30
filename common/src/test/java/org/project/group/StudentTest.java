@@ -1,11 +1,19 @@
-package org.project.group.common;
+package org.project.group;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.junit.jupiter.MockitoSettings;
+import org.mockito.quality.Strictness;
+
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import static org.junit.jupiter.api.Assertions.*;
-
+import static org.mockito.Mockito.when;
+@ExtendWith(MockitoExtension.class)
+@MockitoSettings(strictness = Strictness.LENIENT)
 class StudentTest {
 
     // Test data
@@ -14,7 +22,9 @@ class StudentTest {
     private final int age = 20;
     private final int year = 2;
     private final int group = 101;
-    private final ExamResult examResult = new ExamResult(LocalDate.of(2023, 6, 15), 85, Subject.MATHEMATICAL_ANALYSIS);
+
+    // Create a mock ExamResult instead of a real one
+    private final ExamResult examResult = Mockito.mock(ExamResult.class);
     private final Set<ExamResult> examResults = Set.of(examResult);
 
     @Test
@@ -177,4 +187,5 @@ class StudentTest {
         String result = student.toString();
         assertTrue(result.contains("examResults=null"));
     }
+
 }
