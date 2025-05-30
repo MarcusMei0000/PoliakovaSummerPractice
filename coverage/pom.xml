@@ -11,6 +11,14 @@
 
     <artifactId>coverage</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.project.group</groupId>
+            <artifactId>aggregator</artifactId>
+            <!-- Version comes from parent dependencyManagement -->
+        </dependency>
+    </dependencies>
+
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
