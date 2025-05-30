@@ -36,8 +36,6 @@ pipeline {
       steps {
         // Разрешаем отсутствие отчётов
         archiveArtifacts artifacts: '**/target/site/pmd.html', fingerprint: true, allowEmptyArchive: true
-        // Generate reports first (important!)
-        sh 'mvn pmd:pmd'
 
         // Publish module-specific reports
         publishHTML([
