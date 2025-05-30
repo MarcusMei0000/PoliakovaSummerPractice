@@ -8,12 +8,30 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>aggregator</module>
         <module>common</module>
         <module>services</module>
+        <module>aggregator</module>
         <module>coverage</module>
     </modules>
-
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.project.group</groupId>
+                <artifactId>common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.project.group</groupId>
+                <artifactId>services</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.project.group</groupId>
+                <artifactId>aggregator</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <build>
         <plugins>
             <plugin>
@@ -34,7 +52,7 @@
                     <useModulePath>false</useModulePath>
                 </configuration>
             </plugin>
-            
+
         </plugins>
     </build>
 </project>
