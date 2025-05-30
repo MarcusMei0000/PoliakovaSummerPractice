@@ -1,4 +1,4 @@
-package ru.vsu.entity;
+package org.project.group;
 
 import java.util.Objects;
 import java.util.Set;
@@ -10,14 +10,16 @@ public class Student {
     private final int age;
     private final int year;
     private final int group;
+    private final Set<ExamResult> examResults;
 
 
-    public Student(String firstName, String lastName, int age, int year, int group) {
+    public Student(String firstName, String lastName, int age, int year, int group, Set<ExamResult> examResults) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.year = year;
         this.group = group;
+        this.examResults = examResults;
     }
 
     public String getFirstName() {
@@ -40,6 +42,10 @@ public class Student {
         return group;
     }
 
+    public Set<ExamResult> getExamResults() {
+        return examResults;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -53,12 +59,13 @@ public class Student {
                 && Objects.equals(lastName, student.lastName)
                 && Objects.equals(age, student.age)
                 && Objects.equals(year, student.year)
-                && Objects.equals(group, student.group);
+                && Objects.equals(group, student.group)
+                && Objects.equals(examResults, student.examResults);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, age, year, group);
+        return Objects.hash(firstName, lastName, age, year, group, examResults);
     }
 
     @Override
@@ -69,6 +76,7 @@ public class Student {
                 ", age=" + age +
                 ", course=" + year +
                 ", group=" + group +
+                ", examResults=" + examResults +
                 '}';
     }
 }
