@@ -19,14 +19,25 @@
         <coverage.threshold>0.70</coverage.threshold>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.project.group</groupId>
-            <artifactId>aggregator</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.project.group</groupId>
+                <artifactId>common</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>org.project.group</groupId>
+                <artifactId>services</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>org.project.group</groupId>
+                <artifactId>aggregator</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <build>
         <plugins>
             <plugin>
