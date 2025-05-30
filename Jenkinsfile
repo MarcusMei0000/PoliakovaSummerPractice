@@ -40,7 +40,7 @@ pipeline {
         // Публикуем HTML-отчёты, но не падаем, если их нет
         publishHTML([
           reportName:           'services PMD',
-          reportDir:            'services/target/site',
+          reportDir:            'coverage/target/site',
           reportFiles:          'pmd.html',
           allowMissing:         true,
           alwaysLinkToLastBuild:true,
@@ -48,7 +48,7 @@ pipeline {
         ])
         publishHTML([
           reportName:           'common PMD',
-          reportDir:            'common/target/site',
+          reportDir:            'coverage/target/site',
           reportFiles:          'pmd.html',
           allowMissing:         true,
           alwaysLinkToLastBuild:true,
