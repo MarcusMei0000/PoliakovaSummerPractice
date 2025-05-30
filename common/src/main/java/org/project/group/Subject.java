@@ -1,4 +1,4 @@
-package org.project.group.common;
+package org.project.group;
 
 public enum Subject {
     MATHEMATICAL_ANALYSIS,

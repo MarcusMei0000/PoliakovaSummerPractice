@@ -1,4 +1,4 @@
-package org.project.group.common;
+package org.project.group;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

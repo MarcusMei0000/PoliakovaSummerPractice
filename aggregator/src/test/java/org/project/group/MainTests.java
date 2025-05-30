@@ -1,11 +1,6 @@
-package org.project.group.aggretor;
+package org.project.group;
 
 import org.junit.jupiter.api.Test;
-import org.project.group.common.ExamResult;
-import org.project.group.common.Student;
-import org.project.group.common.Subject;
-import org.project.group.services.StudentService;
-import org.project.group.services.StudentServiceImpl;
 
 import java.time.LocalDate;
 import java.util.List;

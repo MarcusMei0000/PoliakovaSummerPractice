@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>org.project.group</groupId>
-        <artifactId>myproject</artifactId>
+        <artifactId>ru.vsu.practice</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <artifactId>services</artifactId>

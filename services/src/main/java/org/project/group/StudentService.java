@@ -1,6 +1,4 @@
-package org.project.group.services;
-
-import org.project.group.common.Student;
+package org.project.group;
 
 import java.util.Collection;
 import java.util.List;

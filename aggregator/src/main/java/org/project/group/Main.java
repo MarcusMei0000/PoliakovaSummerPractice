@@ -1,9 +1,4 @@
-package org.project.group.aggregator;
-import org.project.group.common.ExamResult;
-import org.project.group.common.Student;
-import org.project.group.common.Subject;
-import org.project.group.services.StudentService;
-import org.project.group.services.StudentServiceImpl;
+package org.project.group;
 
 import java.time.LocalDate;
 import java.util.List;
