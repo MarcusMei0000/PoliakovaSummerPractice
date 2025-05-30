@@ -36,23 +36,25 @@ pipeline {
       steps {
         // Разрешаем отсутствие отчётов
         archiveArtifacts artifacts: '**/target/site/pmd.html', fingerprint: true, allowEmptyArchive: true
+        // Generate reports first (important!)
+        sh 'mvn pmd:pmd'
 
-        // Публикуем HTML-отчёты, но не падаем, если их нет
+        // Publish module-specific reports
         publishHTML([
-          reportName:           'services PMD',
-          reportDir:            'coverage/target/site',
-          reportFiles:          'pmd.html',
-          allowMissing:         true,
-          alwaysLinkToLastBuild:true,
-          keepAll:              true
+            reportName: 'Services PMD Report',
+            reportDir: 'services/target/site',
+            reportFiles: 'pmd.html',
+            allowMissing: true,
+            alwaysLinkToLastBuild: true,
+            keepAll: true
         ])
         publishHTML([
-          reportName:           'common PMD',
-          reportDir:            'coverage/target/site',
-          reportFiles:          'pmd.html',
-          allowMissing:         true,
-          alwaysLinkToLastBuild:true,
-          keepAll:              true
+            reportName: 'Common PMD Report',
+            reportDir: 'common/target/site',
+            reportFiles: 'pmd.html',
+            allowMissing: true,
+            alwaysLinkToLastBuild: true,
+            keepAll: true
         ])
       }
     }
@@ -68,7 +70,7 @@ pipeline {
 
     stage('Measure Code Test Coverage') {
       steps {
-        // Прогоняем тесты, чтобы сгенерировать .exec в core и ui
+        // Прогоняем тесты, чтобы сгенерировать .exec
         bat "mvn test"
 
         // Генерируем агрегированный отчёт и проверяем порог
