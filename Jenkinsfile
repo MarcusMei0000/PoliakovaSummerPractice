@@ -78,15 +78,23 @@ pipeline {
           bat "mvn verify -Dcoverage.threshold=${env.COVERAGE_THRESHOLD}"
         }
 
-        // Публикация HTML-отчёта, если он сгенерирован
-        publishHTML([
-          reportName:           'Jacoco Coverage',
-          reportDir:            'coverage/target/site/jacoco-aggregate',
-          reportFiles:          'index.html',
-          allowMissing:         true,
-          alwaysLinkToLastBuild:true,
-          keepAll:              true
-        ])
+        recordCoverage(
+                tools: [[
+                  parser: 'JACOCO',
+                  pattern: 'coverage/target/site/jacoco-aggregate/jacoco.xml'
+                ]],
+                sourceCodeRetention: 'LAST_BUILD',
+                // если покрытия не найдено — не падаем
+                failOnError: false,
+                qualityGates: [[
+                  metric: 'LINE',
+                  threshold: env.COVERAGE_THRESHOLD.toInteger(),
+                  // если упадёт ниже порога — шаг пометит билд как UNSTABLE
+                  criticality: 'UNSTABLE'
+                ]],
+                // отображать результаты и тренды
+                checksAnnotationScope: 'SKIP'
+              )
       }
     }
 
