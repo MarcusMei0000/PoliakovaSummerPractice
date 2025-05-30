@@ -39,16 +39,16 @@ pipeline {
 
         // Публикуем HTML-отчёты, но не падаем, если их нет
         publishHTML([
-          reportName:           'Core PMD',
-          reportDir:            'core/target/site',
+          reportName:           'services PMD',
+          reportDir:            'services/target/site',
           reportFiles:          'pmd.html',
           allowMissing:         true,
           alwaysLinkToLastBuild:true,
           keepAll:              true
         ])
         publishHTML([
-          reportName:           'UI PMD',
-          reportDir:            'ui/target/site',
+          reportName:           'common PMD',
+          reportDir:            'common/target/site',
           reportFiles:          'pmd.html',
           allowMissing:         true,
           alwaysLinkToLastBuild:true,
@@ -92,7 +92,7 @@ pipeline {
       steps {
         bat 'mvn package -DskipTests'
         bat 'mvn install -DskipTests'
-        bat "copy ui\\target\\*-jar-with-dependencies.jar %PUBLISH_DIR%\\"
+        bat "copy aggregator\\target\\*-jar-with-dependencies.jar %PUBLISH_DIR%\\"
         echo "Артефакт опубликован в: ${env.PUBLISH_DIR}"
       }
     }
