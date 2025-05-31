@@ -46,10 +46,6 @@ public class Student {
         return examResults;
     }
 
-    public double AverageGroupYear(){
-        return (double) (age + year) / 2;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
