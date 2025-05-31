@@ -71,29 +71,10 @@ pipeline {
         // Прогоняем тесты, чтобы сгенерировать .exec
         bat "mvn test"
 
-        // Генерируем агрегированный отчёт и проверяем порог
+        // Генерируем агрегированный отчёт и проверяем
         dir('coverage') {
           bat "mvn verify -Dcoverage.threshold=${env.COVERAGE_THRESHOLD}"
         }
-
-        recordCoverage(
-                tools: [[
-                  parser: 'JACOCO',
-                  pattern: 'coverage/target/site/jacoco-aggregate/jacoco.xml'
-                ]],
-                sourceCodeRetention: 'LAST_BUILD',
-                // если покрытия не найдено — не падаем
-                failOnError: false,
-                qualityGates: [[
-                  metric: 'LINE',
-                  threshold: env.COVERAGE_THRESHOLD.toInteger(),
-                  // если упадёт ниже порога — шаг пометит билд как UNSTABLE
-                  criticality: 'UNSTABLE'
-                ]],
-                // отображать результаты и тренды
-                checksAnnotationScope: 'SKIP'
-              )
-      }
     }
 
     stage('Install & Package Artifact') {
@@ -108,7 +89,6 @@ pipeline {
 
   post {
     success {
-
       recordCoverage(
         tools: [[
           parser: 'JACOCO',
